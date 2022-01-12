@@ -14,6 +14,20 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   AudioCache player = AudioCache(prefix: 'assets/');
+
+  box(Color? c, String note){
+
+    return Expanded(
+        child: TextButton(
+          onPressed: () {
+            player.play(note);
+          },
+          child: Container(
+            color: c,
+          ),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,71 +36,21 @@ class _MyAppState extends State<MyApp> {
           body: SafeArea(
             child: Column(
               children: [
-                Expanded(
-                    child: TextButton(
-                      onPressed:(){player.play('note1.wav');},
-                      child: Container(
-                        color: Colors.red,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child: TextButton(
-                      onPressed:(){player.play('note2.wav');},
-                      child: Container(
-                        color: Colors.deepOrange,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child:
-                    TextButton(
-                      onPressed:(){player.play('note3.wav');},
-                      child: Container(
-                        color: Colors.yellow,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child:
-                    TextButton(
-                      onPressed:(){player.play('note4.wav');},
-                      child: Container(
-                        color: Colors.green,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child:
-                    TextButton(
-                      onPressed:(){player.play('note5.wav');},
-                      child: Container(
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child:
-                    TextButton(
-                      onPressed:(){player.play('note6.wav');},
-                      child: Container(
-                        color: Colors.blue,
-                      ),
-                    )
-                ),
-                Expanded(
-                    child:
-                    TextButton(
-                      onPressed:(){player.play('note7.wav');},
-                      child: Container(
-                        color: Colors.purple,
-                      ),
-                    )
-                ),
+                box(Colors.red, 'note5.wav'),
+                box(Colors.orange, "note2.wav"),
+                box(Colors.yellow, "note4.wav"),
+                box(Colors.green, "note1.wav"),
+                box(Colors.blueGrey, "note7.wav"),
+                box(Colors.blue, "note3.wav"),
+                box(Colors.purple, "note6.wav"),
+
               ],
             ),
-          )
-      ),
+          )),
     );
   }
 }
+
+
+
+
